@@ -1,0 +1,9 @@
+api:
+  port: '8081'
+  id: "20437451"
+  majorVersion: 'v1'
+  groupId: 'b54a87e3-bdb2-48a8-bf90-1a545fb3522c'
+  artifactId: 'super-ticket-pap'
+  version: '1.0.0'
+  specification: "resource::${api.groupId}:${api.artifactId}:${api.version}:oas:zip:super-ticket-papi.yaml"
+  
