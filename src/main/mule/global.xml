@@ -12,6 +12,11 @@ http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/m
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
 http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 
+	<global-property
+		doc:name="Global Property"
+		doc:id="656e1046-e99a-43d4-9113-06b85f2bd914"
+		name="env"
+		value="dev" />
 	<http:listener-config name="apiHttpListenerConfig">
 		<http:listener-connection
 			host="0.0.0.0"
@@ -28,7 +33,13 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 		doc:name="apiAutodiscovery"
 		doc:id="5a2fe512-574d-4518-a360-514af2c06afb"
 		flowRef="api-main" />
-	<configuration-properties doc:name="Configuration properties" doc:id="36fd2757-abfd-4aa4-b072-a6817adce922" file="properties.yaml" />
-
+	<configuration-properties
+		doc:name="Configuration properties"
+		doc:id="36fd2757-abfd-4aa4-b072-a6817adce922"
+		file="properties.yaml" />
+	<configuration-properties
+		doc:name="Configuration properties"
+		doc:id="44d27ab6-a2e8-4cec-a301-d33dcd4b1098"
+		file="properties-${env}.yaml" />
 
 </mule>
