@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <mule
+	xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
 	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
 	xmlns:http="http://www.mulesoft.org/schema/mule/http"
 	xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway"
@@ -10,7 +11,8 @@
 	xsi:schemaLocation="
 http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
-http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
 
 	<global-property
 		doc:name="Global Property"
@@ -35,11 +37,20 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 		flowRef="api-main" />
 	<configuration-properties
 		doc:name="Configuration properties"
-		doc:id="36fd2757-abfd-4aa4-b072-a6817adce922"
-		file="properties.yaml" />
+		doc:id="34d45549-dc54-4383-848d-36b222f38165"
+		file="properties-${env}.yaml" />
+	<secure-properties:config
+		name="securePropertiesConfig"
+		doc:name="Secure Properties Config"
+		doc:id="62f200bc-125b-43fc-aaaf-b543ae6d285d"
+		file="properties-${env}-secure.yaml"
+		key="${secure.key}">
+		<secure-properties:encrypt
+			algorithm="Blowfish" />
+	</secure-properties:config>
 	<configuration-properties
 		doc:name="Configuration properties"
-		doc:id="44d27ab6-a2e8-4cec-a301-d33dcd4b1098"
-		file="properties-${env}.yaml" />
+		doc:id="36fd2757-abfd-4aa4-b072-a6817adce922"
+		file="properties.yaml" />
 
 </mule>
